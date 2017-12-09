@@ -2,10 +2,12 @@
 
 namespace Study.Services
 {
+    public delegate void NodeMethod(SinglyLinkedNode node);
     public interface ILinkedListService
     {
-        SinglyLinkedListNode CreateSinglyListNode(int data);
-        SinglyLinkedListNode GenerateSinglyLinkedList(int numLinearNodes, int numCyclicNodes);
-        bool SinglyLinkedListContainsCycle(SinglyLinkedListNode head);
+        SinglyLinkedNode CreateSinglyLinkedNode(int data);
+        SinglyLinkedNode GenerateSinglyLinkedList(int numLinearNodes, int numCyclicNodes);
+        void TraverseSinglyLinkedList(SinglyLinkedNode head, NodeMethod nodeMethod);
+        bool SinglyLinkedListContainsCycle(SinglyLinkedNode head);
     }
 }

@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Study.Models.LinkedLists
 {
-    public class SinglyLinkedListNode
+    public class SinglyLinkedNode
     {
         public int Value { get; set; }
-        public SinglyLinkedListNode Next { get; set; }
-        public SinglyLinkedListNode(int value)
+        public SinglyLinkedNode Next { get; set; }
+        public SinglyLinkedNode(int value)
         {
             Value = value;
             Next = null;

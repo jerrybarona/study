@@ -45,12 +45,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bindings.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Study.Application\Study.Application.csproj">
+      <Project>{d9f89971-aec4-43de-8a15-a3e3ff686837}</Project>
+      <Name>Study.Application</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Study.Services\Study.Services.csproj">
+      <Project>{82ab8125-3e4f-4d34-960d-74015d6f512d}</Project>
+      <Name>Study.Services</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
