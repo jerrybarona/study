@@ -7,6 +7,7 @@ using Ninject;
 using Ninject.Modules;
 using Study.Services;
 using Study.Services.Utility;
+using Study.Application.DataStructures.LinkedLists;
 
 namespace Study
 {
@@ -16,6 +17,7 @@ namespace Study
         {
             Bind<ILinkedListService>().To<LinkedListService>();
             Bind<ILinkedListUtility>().To<LinkedListUtility>();
+            Bind<ISinglyLinkedListRepository>().To<SinglyLinkedListRepository>();
         }
     }
 }

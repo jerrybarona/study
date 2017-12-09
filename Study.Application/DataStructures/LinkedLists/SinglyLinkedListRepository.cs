@@ -8,7 +8,7 @@ using Study.Services.Utility;
 
 namespace Study.Application.DataStructures.LinkedLists
 {
-    public class SinglyLinkedListRepository
+    public class SinglyLinkedListRepository : ISinglyLinkedListRepository
     {
         private readonly ILinkedListService _linkedListService;
         private readonly ILinkedListUtility _linkedListUtility;
@@ -32,6 +32,7 @@ namespace Study.Application.DataStructures.LinkedLists
             {
                 Console.WriteLine("Program did not work");
             }
+            Console.ReadLine();
         }
 
         public void PrintElementsInSinglyLinkedList()
@@ -39,6 +40,7 @@ namespace Study.Application.DataStructures.LinkedLists
             Console.WriteLine("Running PrintElementsInSinglyLinkedList program...");
             var list = _linkedListService.GenerateSinglyLinkedList(5, 0);
             _linkedListService.TraverseSinglyLinkedList(list, _linkedListUtility.PrintNode);
+            Console.ReadLine();
         }
     }
 }
