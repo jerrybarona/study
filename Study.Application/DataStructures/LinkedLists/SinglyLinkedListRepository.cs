@@ -14,6 +14,11 @@ namespace Study.Application.DataStructures.LinkedLists
         public SinglyLinkedListRepository(ILinkedListService singlyLinkedListService)
         {
             _singlyLinkedListService = singlyLinkedListService;
-        } 
+        }
+
+        public void CheckSinglyLinkedListContainsCycle()
+        {
+
+        }
     }
 }

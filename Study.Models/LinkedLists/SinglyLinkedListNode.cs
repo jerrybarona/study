@@ -13,6 +13,7 @@ namespace Study.Models.LinkedLists
         public SinglyLinkedListNode(int value)
         {
             Value = value;
+            Next = null;
         }
     }
 }
