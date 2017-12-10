@@ -12,17 +12,21 @@ namespace Study.Application.DataStructures.LinkedLists
     {
         private readonly ILinkedListService _linkedListService;
         private readonly ILinkedListUtility _linkedListUtility;
+        private readonly IGlobalUtility _globalUtility;
 
         public SinglyLinkedListRepository(ILinkedListService linkedListService,
-                                          ILinkedListUtility linkedListUtility)
+                                          ILinkedListUtility linkedListUtility,
+                                          IGlobalUtility globalUtility)
         {
             _linkedListService = linkedListService;
             _linkedListUtility = linkedListUtility;
+            _globalUtility = globalUtility;
         }
 
         public void CheckSinglyLinkedListContainsCycle()
         {
-            Console.WriteLine("Running CheckSinglyLinkedListContainsCycle program...");
+            _globalUtility.OpeningProgramMessage("CheckSinglyLinkedListContainsCycle");
+
             var list = _linkedListService.GenerateSinglyLinkedList(3, 3);
             if (_linkedListService.SinglyLinkedListContainsCycle(list))
             {
@@ -32,15 +36,18 @@ namespace Study.Application.DataStructures.LinkedLists
             {
                 Console.WriteLine("Program did not work");
             }
-            Console.ReadLine();
+
+            _globalUtility.ClosingProgramMessage();
         }
 
         public void PrintElementsInSinglyLinkedList()
         {
-            Console.WriteLine("Running PrintElementsInSinglyLinkedList program...");
+            _globalUtility.OpeningProgramMessage("PrintElementsInSinglyLinkedList");
+
             var list = _linkedListService.GenerateSinglyLinkedList(5, 0);
             _linkedListService.TraverseSinglyLinkedList(list, _linkedListUtility.PrintNode);
-            Console.ReadLine();
+
+            _globalUtility.ClosingProgramMessage();
         }
     }
 }

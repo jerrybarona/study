@@ -18,6 +18,8 @@ namespace Study
             Bind<ILinkedListService>().To<LinkedListService>();
             Bind<ILinkedListUtility>().To<LinkedListUtility>();
             Bind<ISinglyLinkedListRepository>().To<SinglyLinkedListRepository>();
+            Bind<IGeneralLinkedListRepository>().To<GeneralLinkedListRepository>();
+            Bind<IGlobalUtility>().To<GlobalUtility>();
         }
     }
 }

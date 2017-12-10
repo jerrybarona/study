@@ -14,10 +14,11 @@ namespace Study
             kernel.Load(Assembly.GetExecutingAssembly());
             kernel.Get<ILinkedListService>();
             kernel.Get<ILinkedListUtility>();
+            kernel.Get<IGlobalUtility>();
 
-            var app = kernel.Get<ISinglyLinkedListRepository>();
+            var app = kernel.Get<IGeneralLinkedListRepository>();
 
-            app.CheckSinglyLinkedListContainsCycle();
+            app.GenerateLinkedListFrom2DArray();
         }
     }
 }

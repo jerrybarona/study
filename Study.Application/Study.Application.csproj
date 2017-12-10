@@ -40,6 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataStructures\LinkedLists\GeneralLinkedListRepository.cs" />
+    <Compile Include="DataStructures\LinkedLists\IGeneralLinkedListRepository.cs" />
     <Compile Include="DataStructures\LinkedLists\ISinglyLinkedListRepository.cs" />
     <Compile Include="DataStructures\LinkedLists\SinglyLinkedListRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

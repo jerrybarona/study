@@ -1,9 +1,10 @@
-﻿using Study.Models.LinkedLists;
+﻿using Study.Models;
 
 namespace Study.Services.Utility
 {
     public interface ILinkedListUtility
     {
-        void PrintNode(SinglyLinkedNode node);
+        void PrintNode(Node node);
+        void PrintNodeValue(Node node);
     }
 }

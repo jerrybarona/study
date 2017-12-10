@@ -43,6 +43,8 @@
     <Compile Include="ILinkedListService.cs" />
     <Compile Include="LinkedListService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utility\GlobalUtility.cs" />
+    <Compile Include="Utility\IGlobalUtility.cs" />
     <Compile Include="Utility\ILinkedListUtility.cs" />
     <Compile Include="Utility\LinkedListUtility.cs" />
   </ItemGroup>

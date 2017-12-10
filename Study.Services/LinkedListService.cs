@@ -5,9 +5,27 @@ namespace Study.Services
 {
     public class LinkedListService : ILinkedListService
     {
+        public RightAndDownPointingNode CreateRightAndDownPointingNode(int data = 0)
+        {
+            return new RightAndDownPointingNode(data);
+        }
+
         public SinglyLinkedNode CreateSinglyLinkedNode(int data = 0)
         {
             return new SinglyLinkedNode(data);
+        }
+
+        public RightAndDownPointingNode GenerateLinkedListFrom2DMatrix(int[][] matrix, int m, int n, int i, int j)
+        {
+            if (i > n - 1 || j > m - 1)
+            {
+                return null;
+            }
+
+            RightAndDownPointingNode temp = CreateRightAndDownPointingNode(matrix[i][j]);
+            temp.Right = GenerateLinkedListFrom2DMatrix(matrix, m, n, i + 1, j);
+            temp.Down = GenerateLinkedListFrom2DMatrix(matrix, m, n, i, j + 1);
+            return temp;
         }
 
         public SinglyLinkedNode GenerateSinglyLinkedList(int numLinearNodes, int numCyclicNodes)
@@ -96,6 +114,24 @@ namespace Study.Services
             }
 
             return false;
+        }
+
+        public void TraverseMatrixLinkList(RightAndDownPointingNode head, NodeMethod nodeMethod)
+        {
+            RightAndDownPointingNode rightward = head;
+            RightAndDownPointingNode downward = head;
+
+            while (downward != null)
+            {
+                rightward = downward;
+                while (rightward != null)
+                {
+                    nodeMethod(rightward);
+                    rightward = rightward.Right;
+                }
+                Console.WriteLine();
+                downward = downward.Down;
+            }
         }
 
         public void TraverseSinglyLinkedList(SinglyLinkedNode head, NodeMethod nodeMethod)

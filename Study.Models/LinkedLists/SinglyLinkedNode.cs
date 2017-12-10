@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace Study.Models.LinkedLists
 {
-    public class SinglyLinkedNode
+    public class SinglyLinkedNode : Node
     {
-        public int Value { get; set; }
         public SinglyLinkedNode Next { get; set; }
         public SinglyLinkedNode(int value)
         {
