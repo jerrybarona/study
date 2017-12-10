@@ -2,6 +2,7 @@
 using Study.Services;
 using Study.Services.Utility;
 using Study.Application.DataStructures.LinkedLists;
+using Study.Application.DataStructures.Arrays;
 using System.Reflection;
 
 namespace Study
@@ -12,13 +13,13 @@ namespace Study
         {
             var kernel = new StandardKernel();
             kernel.Load(Assembly.GetExecutingAssembly());
-            kernel.Get<ILinkedListService>();
-            kernel.Get<ILinkedListUtility>();
+            kernel.Get<IArrayService>();
+            kernel.Get<IArrayUtility>();
             kernel.Get<IGlobalUtility>();
 
-            var app = kernel.Get<IGeneralLinkedListRepository>();
+            var app = kernel.Get<IArrayRepository>();
 
-            app.GenerateLinkedListFrom2DArray();
+            app.FindNumberInSorted2DMatrix();
         }
     }
 }
