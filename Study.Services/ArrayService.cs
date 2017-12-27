@@ -35,5 +35,22 @@ namespace Study.Services
 
             return false;
         }
+
+        public int FindMinElementInDescAscSortedArray(int[] arr, int low, int high)
+        {
+            if (low == high) return arr[low];
+            if (low == high - 1)
+            {
+                return arr[low] <= arr[high]
+                    ? arr[low]
+                    : arr[high];
+            }
+            int mid = (high + low) / 2;
+            if (arr[mid] <= arr[mid - 1] && arr[mid] <= arr[mid + 1]) return arr[mid];
+            if (arr[mid] < arr[mid - 1] && arr[mid] > arr[mid + 1])
+                return FindMinElementInDescAscSortedArray(arr, mid, high);
+            else
+                return FindMinElementInDescAscSortedArray(arr, low, mid);
+        }
     }
 }

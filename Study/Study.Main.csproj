@@ -58,6 +58,10 @@
       <Project>{d9f89971-aec4-43de-8a15-a3e3ff686837}</Project>
       <Name>Study.Application</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Study.Models\Study.Models.csproj">
+      <Project>{552ea9cd-eb2c-4d17-a9f5-0d91d830bf61}</Project>
+      <Name>Study.Models</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Study.Services\Study.Services.csproj">
       <Project>{82ab8125-3e4f-4d34-960d-74015d6f512d}</Project>
       <Name>Study.Services</Name>

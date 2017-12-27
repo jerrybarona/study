@@ -21,6 +21,7 @@ namespace Study
             Bind<ILinkedListUtility>().To<LinkedListUtility>();
             Bind<IArrayUtility>().To<ArrayUtility>();
             Bind<IGlobalUtility>().To<GlobalUtility>();
+            Bind<IBinaryTreeUtility>().To<BinaryTreeUtility>();
         }
     }
 }
