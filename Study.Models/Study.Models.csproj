@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="LinkedLists\RightAndDownPointingNode.cs" />
     <Compile Include="LinkedLists\SinglyLinkedNode.cs" />
+    <Compile Include="LinkedLists\Stack.cs" />
     <Compile Include="LinkedLists\StackNode.cs" />
     <Compile Include="Node.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

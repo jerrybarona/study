@@ -1,14 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Study.Models.LinkedLists;
-
-namespace Study.Services
+﻿namespace Study.Services
 {
     public interface IStackService
     {
-
+        bool GenerateStackFromArray(object[] arr);
+        /// <summary>
+        /// From Bloomberg 
+        /// </summary>
+        /// <param name="arr">char array</param>
+        /// <returns>True if all braces are matched up</returns>
+        bool CheckForBalancedBraces(object[] arr);
     }
 }
