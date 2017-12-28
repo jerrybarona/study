@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ArrayService.cs" />
+    <Compile Include="BinaryTreeService.cs" />
     <Compile Include="IArrayService.cs" />
     <Compile Include="IBinaryTreeService.cs" />
     <Compile Include="ILinkedListService.cs" />

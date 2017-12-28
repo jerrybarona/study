@@ -8,6 +8,7 @@ namespace Study.Test
     {
         protected ILinkedListService LinkedListService { get; set; }
         protected IArrayService ArrayService { get; set; }
+        protected IBinaryTreeService BinaryTreeService { get; set; }
         protected LinkedListUtility LinkedListUtility { get; set; }
         protected ArrayUtility ArrayUtility { get; set; }
         protected GlobalUtility GlobalUtility { get; set; }
@@ -18,6 +19,7 @@ namespace Study.Test
         {
             LinkedListService = new LinkedListService();
             ArrayService = new ArrayService();
+            BinaryTreeService = new BinaryTreeService();
 
             LinkedListUtility = new LinkedListUtility();
             ArrayUtility = new ArrayUtility();

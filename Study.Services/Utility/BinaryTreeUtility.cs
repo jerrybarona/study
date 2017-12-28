@@ -5,6 +5,11 @@ namespace Study.Services.Utility
 {
     public class BinaryTreeUtility : IBinaryTreeUtility
     {
+        /// <summary>
+        /// Returns the height (number of levels) of a binary tree
+        /// </summary>
+        /// <param name="root"></param>
+        /// <returns></returns>
         public int GetBinaryTreeHeight(BinaryTreeNode root)
         {
             if (root == null)
@@ -14,7 +19,6 @@ namespace Study.Services.Utility
 
             int leftHeight = GetBinaryTreeHeight(root.Left);
             int rightHeight = GetBinaryTreeHeight(root.Right);
-
             if (leftHeight > rightHeight)
             {
                 return leftHeight + 1;

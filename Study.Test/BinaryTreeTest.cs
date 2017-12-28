@@ -27,5 +27,11 @@ namespace Study.Test
             Assert.That(BinaryTreeUtility.GetBinaryTreeHeight(root), Is.EqualTo(3));
         }
         
+
+        [TestCase(1, 28)]
+        public virtual void CanReturnTheSumOfTreeNodesBelowAGivenLevel(int level, int expectedSum)
+        {
+            Assert.AreEqual(BinaryTreeService.SumOfElementsInBinaryTreeBelowAGivenLevel(root, level), expectedSum);
+        }
     }
 }
