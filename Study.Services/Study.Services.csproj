@@ -45,6 +45,7 @@
     <Compile Include="IArrayService.cs" />
     <Compile Include="IBinaryTreeService.cs" />
     <Compile Include="ILinkedListService.cs" />
+    <Compile Include="IStackService.cs" />
     <Compile Include="LinkedListService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utility\ArrayUtility.cs" />
