@@ -54,65 +54,44 @@ namespace Study.Services
             int xlength = matrix.GetLength(0);
             int ylength = matrix.GetLength(1);
 
-            int[,] islands = new int[xlength, ylength];
-            int[] xcheck = new int[4] { 0, 1, 0, 1};
-            int[] ycheck = new int[4] { 0, 0, 1, 1};
-
-            // 4 first cells
             int iCounter = 0;
-            bool sameIsland = false;
-            if (matrix[0, 0] == 1)
-            {
-                islands[0, 0] = ++iCounter;
-                sameIsland = true;
-            }
-            if (matrix[0, 1] == 1)
-            {
-                if (sameIsland) islands[0, 1] = iCounter;
-                else
-                {
-                    islands[0, 1] = ++iCounter;
-                    sameIsland = true;
-                }                
-            }
 
-            if (matrix[1, 0] == 1)
+            // first row
+            if (matrix[0, 0] == 1) ++iCounter;
+
+            for (var i = 1; i < xlength; ++i)
             {
-                if (sameIsland) islands[0, 1] = iCounter;
-                else
+                if (matrix[i, 0] == 1)
                 {
-                    islands[0, 1] = ++iCounter;
-                    sameIsland = true;
+                    if (matrix[i - 1, 0] == 0) ++iCounter;
                 }
             }
 
-            for (int i = 1; i < xlength; ++i)
+            for (int j = 1; j < ylength; ++j)
             {
-                for (int j = 1; j < ylength; ++j)
+                for (int i = 0; i < ylength; ++i)
                 {
+                    if (i == 0)
+                    {
+                        if (matrix[i, j] == 1)
+                        {
+                            if (matrix[i, j - 1] == 0 && matrix[i + 1, j - 1] == 0) ++iCounter;
+                        }
+                        continue;
+                    }
+
                     if (matrix[i,j] == 1)
                     {
-                        if (islands[i,j] == 0)
-                        {
-                            islands[i, j] = islands[i - 1, j - 1] != 0
-                                ? islands[i - 1, j - 1]
-                                : islands[i - 1, j] != 0
-                                ? islands[i - 1, j]
-                                : islands[i, j - 1] != 0
-                                ? islands[i, j - 1]
-                                : ++iCounter;
-                        }
-
-                        if (islands[])
+                        if (matrix[i - 1, j - 1] == 0 && matrix[i, j - 1] == 0 && matrix[i - 1, j] == 0) ++iCounter;
+                        
                     }
-                    //if (islands[i,j] != 0 || islands[i+1, j] != 0 || islands[i, j+1] != 0 || islands[i+1, j+1] != 0)
-                    //{
-
-                    //}
+                    if ((matrix[i, j - 1] == 1 && matrix[i - 1, j - 1] == 1) ||
+                        (matrix[i, j - 1] == 1 && matrix[i - 1, j] == 1)) --iCounter;
+                    
                 }
             }
+            return iCounter;
         }
 
-        private 
     }
 }
