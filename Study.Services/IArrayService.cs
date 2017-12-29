@@ -23,5 +23,22 @@ namespace Study.Services
         /// Lowest element in the array
         /// </returns>
         int FindMinElementInDescAscSortedArray(int[] arr, int low, int high);
+
+        /// <summary>
+        /// Given a boolean 2D matrix, find the number of islands. A group of connected 1s forms an island.
+        /// For example, the below matrix contains 5 islands
+        /// Input : mat[][] = {{1, 1, 0, 0, 0},
+        /// {0, 1, 0, 0, 1},
+        /// {1, 0, 0, 1, 1},
+        /// {0, 0, 0, 0, 0},
+        /// {1, 0, 1, 0, 1} 
+        /// Output : 5
+        /// </summary>
+        /// <param name="matrix">
+        /// a binary matrix (0 or 1)</param>
+        /// <returns>
+        /// Integer number of islands in the matrix
+        /// </returns>
+        int NumberOfIslands(int[,] matrix);
     }
 }
