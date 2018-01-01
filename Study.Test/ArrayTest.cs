@@ -17,11 +17,17 @@ namespace Study.Test
         private int[] descAscArray = { 50, 48, 37, 26, 15, 4, -3, 2, 11, 19, 28};
 
         private int[,] binary2dArray = {
-            {1, 1, 0, 0, 0},
-            {0, 1, 0, 0, 1},
-            {1, 0, 0, 1, 1},
-            {0, 0, 0, 0, 0},
-            {1, 0, 1, 0, 1}};
+            {1, 1, 0, 0, 0, 1, 1, 0, 0, 0},
+            {0, 1, 0, 0, 1, 0, 1, 0, 0, 1},
+            {1, 0, 0, 1, 1, 1, 0, 0, 1, 1},
+            {0, 0, 0, 0, 1, 0, 0, 0, 0, 1},
+            {1, 0, 1, 0, 1, 1, 0, 1, 0, 1},
+            {1, 1, 0, 0, 0, 1, 1, 0, 0, 0},
+            {0, 1, 0, 0, 1, 0, 1, 0, 0, 1},
+            {1, 0, 0, 1, 1, 1, 0, 0, 1, 1},
+            {0, 0, 0, 0, 1, 0, 0, 0, 0, 1},
+            {1, 0, 1, 0, 1, 1, 0, 1, 0, 1}
+        };
 
         [TestCase(7)]
         public virtual void CheckThatNumberExistsIn2DMatrix(int numberToFind)
@@ -49,14 +55,14 @@ namespace Study.Test
         [Test]
         public virtual void CanFindLeastElementInDescAscSortedArray()
         {
-            Assert.AreEqual(ArrayService.FindMinElementInDescAscSortedArray(descAscArray, 0, descAscArray.Length - 1), -3);
+            Assert.AreEqual(-3, ArrayService.FindMinElementInDescAscSortedArray(descAscArray, 0, descAscArray.Length - 1));
         }
 
         [Test]
         public virtual void CanReturnNumberOfIslandsInMatrix()
         {
             ArrayUtility.Print2DArray(binary2dArray);
-            //Assert.AreEqual(ArrayService.NumberOfIslands(binary2dArray), 6);
+            Assert.AreEqual(8, ArrayService.NumberOfIslands(binary2dArray));
         }
     }
 }

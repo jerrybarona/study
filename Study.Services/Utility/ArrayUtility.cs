@@ -29,8 +29,8 @@ namespace Study.Services.Utility
 
         public void Print2DArray(int[,] matrix)
         {
-            int xlength = matrix.GetLength(0);
-            int ylength = matrix.GetLength(1);
+            int ylength = matrix.GetLength(0);
+            int xlength = matrix.GetLength(1);
 
             for (var j = 0; j < ylength; ++j)
             {

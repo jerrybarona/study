@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Study.Services
 {
@@ -51,47 +52,81 @@ namespace Study.Services
 
         public int NumberOfIslands(int[,] matrix)
         {
-            int xlength = matrix.GetLength(0);
-            int ylength = matrix.GetLength(1);
+            int ylength = matrix.GetLength(0);
+            int xlength = matrix.GetLength(1);
 
+            int[,] islands = new int[ylength, xlength];
+            Dictionary<int, int> pairs = new Dictionary<int, int>();
             int iCounter = 0;
+            int iRecord = 0;
+
 
             // first row
-            if (matrix[0, 0] == 1) ++iCounter;
+            if (matrix[0, 0] == 1) { islands[0, 0] = ++iCounter; ++iRecord; }
 
             for (var i = 1; i < xlength; ++i)
             {
-                if (matrix[i, 0] == 1)
+                if (matrix[0, i] == 1)
                 {
-                    if (matrix[i - 1, 0] == 0) ++iCounter;
+                    if (islands[0, i - 1] != 0) { islands[0, i] = islands[0, i - 1]; }
+                    else { islands[0, i] = ++iCounter; ++iRecord; }
                 }
             }
 
             for (int j = 1; j < ylength; ++j)
             {
-                for (int i = 0; i < ylength; ++i)
+                for (int i = 0; i < xlength; ++i)
                 {
                     if (i == 0)
                     {
-                        if (matrix[i, j] == 1)
+                        if (matrix[j, i] == 1)
                         {
-                            if (matrix[i, j - 1] == 0 && matrix[i + 1, j - 1] == 0) ++iCounter;
+                            if (islands[j - 1, i] != 0) { islands[j, i] = islands[j - 1, i]; }
+                            else { islands[j, i] = ++iCounter; ++iRecord; }
                         }
                         continue;
                     }
 
-                    if (matrix[i,j] == 1)
+                    if (matrix[j, i] == 1)
                     {
-                        if (matrix[i - 1, j - 1] == 0 && matrix[i, j - 1] == 0 && matrix[i - 1, j] == 0) ++iCounter;
-                        
+                        if (islands[j - 1, i - 1] == 0 && islands[j - 1, i] == 0 && islands[j, i - 1] == 0) { islands[j, i] = ++iCounter; ++iRecord; }
+                        else
+                        {
+                            islands[j, i]
+                                = islands[j, i - 1] != 0
+                                ? islands[j, i - 1]
+                                : islands[j - 1, i - 1] != 0
+                                ? islands[j - 1, i - 1]
+                                : islands[j - 1, i];
+                        }                        
                     }
-                    if ((matrix[i, j - 1] == 1 && matrix[i - 1, j - 1] == 1) ||
-                        (matrix[i, j - 1] == 1 && matrix[i - 1, j] == 1)) --iCounter;
-                    
+                    if (islands[j - 1, i] != islands[j, i - 1] && islands[j - 1, i] != 0 && islands[j, i - 1] != 0)
+                    {
+                        int value = Math.Min(islands[j - 1, i], islands[j, i - 1]);
+                        int key = Math.Max(islands[j - 1, i], islands[j, i - 1]);
+
+                        if (!IsConnected(pairs, key, value)) { pairs.Add(key, value); --iRecord; }                        
+                    }
                 }
             }
-            return iCounter;
+            return iRecord;
         }
-
+        private bool IsConnected(Dictionary<int, int> p, int k, int v)
+        {
+            int key = k;
+            int value = v;
+            while (true)
+            {
+                if (p.TryGetValue(key, out int result))
+                {
+                    if (result == value) return true;
+                    key = result;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+        }
     }
 }
