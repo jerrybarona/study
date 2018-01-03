@@ -1,33 +1,18 @@
 ﻿using NUnit.Framework;
-using Study.Services;
-using Study.Services.Utility;
+using Ninject;
+using System.Reflection;
 
 namespace Study.Test
 {
     public abstract class TestBase
     {
-        protected ILinkedListService LinkedListService { get; set; }
-        protected IArrayService ArrayService { get; set; }
-        protected IBinaryTreeService BinaryTreeService { get; set; }
-        protected IStackService StackService { get; set; }
-
-        protected LinkedListUtility LinkedListUtility { get; set; }
-        protected ArrayUtility ArrayUtility { get; set; }
-        protected GlobalUtility GlobalUtility { get; set; }
-        protected BinaryTreeUtility BinaryTreeUtility { get; set; }
+        protected StandardKernel Kernel { get; set; }
 
         [SetUp]
         public virtual void BeforeEachTest()
         {
-            LinkedListService = new LinkedListService();
-            ArrayService = new ArrayService();
-            BinaryTreeService = new BinaryTreeService();
-            StackService = new StackService();
-
-            LinkedListUtility = new LinkedListUtility();
-            ArrayUtility = new ArrayUtility();
-            GlobalUtility = new GlobalUtility();
-            BinaryTreeUtility = new BinaryTreeUtility();
+            Kernel = new StandardKernel();
+            Kernel.Load(Assembly.GetExecutingAssembly());
         }
     }
 }

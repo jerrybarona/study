@@ -1,12 +1,15 @@
-﻿using NUnit.Framework;
+﻿using Ninject;
+using NUnit.Framework;
 using Study.Models.Trees;
+using Study.Services;
+using Study.Services.Utility;
 
 namespace Study.Test
 {
     [TestFixture]
     public class BinaryTreeTest : TestBase
     {
-        private static BinaryTreeNode root = new BinaryTreeNode(1)
+        private static BinaryTreeNode _root = new BinaryTreeNode(1)
         {
             Left = new BinaryTreeNode(2)
             {
@@ -18,20 +21,30 @@ namespace Study.Test
                 Left = new BinaryTreeNode(6),
                 Right = new BinaryTreeNode(7)
             }
-        };        
+        };
+
+        private IBinaryTreeService Service { get; set; }
+        private IBinaryTreeUtility Utility { get; set; }
+
+        [SetUp]
+        public virtual void BeforeArrayTests()
+        {
+            Service = Kernel.Get<IBinaryTreeService>();
+            Utility = Kernel.Get<IBinaryTreeUtility>();
+        }
 
         [Test]
         public virtual void CanCalculateTreeHeight()
         {
-            BinaryTreeUtility.LevelOrderPrint(root);
-            Assert.That(BinaryTreeUtility.GetBinaryTreeHeight(root), Is.EqualTo(3));
+            Utility.LevelOrderPrint(_root);
+            Assert.That(Utility.GetBinaryTreeHeight(_root), Is.EqualTo(3));
         }
         
 
         [TestCase(1, 28)]
         public virtual void CanReturnTheSumOfTreeNodesBelowAGivenLevel(int level, int expectedSum)
         {
-            Assert.AreEqual(BinaryTreeService.SumOfElementsInBinaryTreeBelowAGivenLevel(root, level), expectedSum);
+            Assert.AreEqual(Service.SumOfElementsInBinaryTreeBelowAGivenLevel(_root, level), expectedSum);
         }
     }
 }

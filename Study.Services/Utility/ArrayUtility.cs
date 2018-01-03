@@ -41,5 +41,38 @@ namespace Study.Services.Utility
                 Console.WriteLine();
             }
         }
+
+        public void QuickSort(int[] arr, int low, int high)
+        {
+            if (low < high)
+            {
+                var p = Partition(arr, low, high);
+                QuickSort(arr, low, p -1);
+                QuickSort(arr, p + 1, high);
+            }
+        }
+
+        private static int Partition(int[] arr, int low, int high)
+        {
+            var pivot = arr[high];
+            var i = low - 1;
+            for (var j = 0; j <= high; ++j)
+            {
+                if (arr[j] <= pivot)
+                {
+                    ++i;
+                    Swap(ref arr[i], ref arr[j]);
+                }
+            }
+            Swap(ref arr[i + 1], ref arr[high]);
+            return i + 1;
+        }
+
+        private static void Swap(ref int a, ref int b)
+        {
+            var temp = a;
+            a = b;
+            b = temp;
+        }
     }
 }

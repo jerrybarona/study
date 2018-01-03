@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Study.Services.Utility;
 
 namespace Study.Services
 {
@@ -111,6 +112,12 @@ namespace Study.Services
             }
             return iRecord;
         }
+
+        public int[] NextGreaterElement(int[] findNums, int[] nums)
+        {
+            return new int[1];
+        }
+
         private bool IsConnected(Dictionary<int, int> p, int k, int v)
         {
             int key = k;
