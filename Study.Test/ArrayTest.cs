@@ -17,6 +17,7 @@ namespace Study.Test
         };
 
         private readonly int[] _descAscArray = { 50, 48, 37, 26, 15, 4, -3, 2, 11, 19, 28};
+        private readonly int[] _ascArray = { 2, 3, 5, 8, 8, 8, 8, 10, 11, 15};
 
         private readonly int[,] _binary2DArray = {
             {1, 1, 0, 0, 0, 1, 1, 0, 0, 0},
@@ -75,6 +76,27 @@ namespace Study.Test
         {
             Utility.Print2DArray(_binary2DArray);
             Assert.AreEqual(8, Service.NumberOfIslands(_binary2DArray));
+        }
+
+        [TestCase(7)]
+        public virtual void CannnotFindRangeInSortedArray(int target)
+        {
+            var result = new[] {-1, -1};
+            Assert.AreEqual(result, Service.SearchRange(_ascArray, target));
+        }
+
+        [TestCase(8)]
+        public virtual void CanFindRangeInSortedArray(int target)
+        {
+            var result = new[] { 3, 6 };
+            Assert.AreEqual(result, Service.SearchRange(_ascArray, target));
+        }
+
+        [TestCase(10)]
+        public virtual void CanFindSingleElementRangeInSortedArray(int target)
+        {
+            var result = new[] { 7, 7 };
+            Assert.AreEqual(result, Service.SearchRange(_ascArray, target));
         }
     }
 }

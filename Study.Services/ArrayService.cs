@@ -118,6 +118,58 @@ namespace Study.Services
             return new int[1];
         }
 
+        public int[] SearchRange(int[] nums, int target)
+        {
+            var x = FindLeftmostInRange(nums, 0, nums.Length - 1, target);
+            if (x == -1) return new[] {-1, -1};
+            var y = FindRightmostInRange(nums, x, nums.Length - 1, target);
+            return new[] {x, y};
+        }
+
+        private int FindLeftmostInRange(int[] nums, int lo, int hi, int target)
+        {
+            while (lo != hi)
+            {
+                var mid = (lo + hi) / 2;
+                if (target == nums[mid])
+                {
+                    return FindLeftmostInRange(nums, lo, mid, target);
+                }
+                if (target < nums[mid])
+                {
+                    return FindLeftmostInRange(nums, lo, mid - 1, target);
+                }
+                return FindLeftmostInRange(nums, mid + 1, hi, target);
+            }
+            if (lo == hi)
+            {
+                if (nums[lo] == target) return lo;
+            }
+            return -1;
+        }
+
+        private int FindRightmostInRange(int[] nums, int lo, int hi, int target)
+        {
+            while (lo != hi)
+            {
+                var mid = (lo + hi) / 2;
+                if (target == nums[mid])
+                {
+                    return FindRightmostInRange(nums, mid, hi, target);
+                }
+                if (target > nums[mid])
+                {
+                    return FindRightmostInRange(nums, mid + 1, hi, target);
+                }
+                return FindRightmostInRange(nums, lo, mid - 1, target);
+            }
+            if (lo == hi)
+            {
+                if (nums[lo] == target) return hi;
+            }
+            return -1;
+        }
+
         private bool IsConnected(Dictionary<int, int> p, int k, int v)
         {
             int key = k;

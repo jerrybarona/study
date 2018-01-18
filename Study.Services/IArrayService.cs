@@ -65,5 +65,23 @@ namespace Study.Services
         /// Next Greater element: Int array with same length as findNums
         /// </returns>
         int[] NextGreaterElement(int[] findNums, int[] nums);
+
+        /// <summary>
+        /// Leetcode 34. Search for a Range
+        /// Given an array of integers sorted in ascending order, find the starting and ending position of a given target value.
+        /// Your algorithm's runtime complexity must be in the order of O(log n).
+        /// If the target is not found in the array, return [-1, -1].
+        /// For example, Given[5, 7, 7, 8, 8, 10] and target value 8, return [3, 4].
+        /// </summary>
+        /// <param name="nums">
+        /// sorted array to find range in
+        /// </param>
+        /// <param name="target">
+        /// number whose range is to be found in 'nums'
+        /// </param>
+        /// <returns>
+        /// Array of length 2 containing the initial and final indexes in 'nums' where 'target' can be found
+        /// </returns>
+        int[] SearchRange(int[] nums, int target);
     }
 }
