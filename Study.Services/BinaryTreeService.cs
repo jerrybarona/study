@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Study.Models.Trees;
 
 namespace Study.Services
@@ -38,6 +39,22 @@ namespace Study.Services
             return lheight > rheight
                 ? lheight + 1
                 : rheight + 1;
+        }
+
+        public bool CheckIfIsBinarySearchTree(ref BinaryTreeNode root)
+        {
+            return true;
+        }
+
+        private void PopulateListWithInOrderedElements(BinaryTreeNode root, ref List<int> inOrderList)
+        {
+            if (root == null)
+            {
+                return;
+            }
+            PopulateListWithInOrderedElements(root.Left, ref inOrderList);
+            inOrderList.Add(root.Value);
+
         }
     }
 }

@@ -83,5 +83,15 @@ namespace Study.Services
         /// Array of length 2 containing the initial and final indexes in 'nums' where 'target' can be found
         /// </returns>
         int[] SearchRange(int[] nums, int target);
+
+        /// <summary>
+        /// Hackerrank: Arrays: Left Rotation
+        /// Given an array of n integers and a number, d, perform d left rotations on the array.
+        /// Then print the updated array as a single line of space-separated integers.
+        /// </summary>
+        /// <param name="n"></param>
+        /// <param name="k"></param>
+        /// <param name="a"></param>
+        void LeftRotation(int n, int k, ref int[] a);
     }
 }

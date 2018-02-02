@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Collections.Generic;
 using Study.Services.Utility;
 
@@ -187,5 +188,13 @@ namespace Study.Services
                 }
             }
         }
+
+        public void LeftRotation(int n, int k, ref int[] a)
+        {
+            var temp1 = a.Skip(k).Take(n - k).ToList();
+            temp1.AddRange(a.Take(k));
+            a = temp1.ToArray();
+        }
+
     }
 }

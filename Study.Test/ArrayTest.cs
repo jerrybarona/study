@@ -18,6 +18,7 @@ namespace Study.Test
 
         private readonly int[] _descAscArray = { 50, 48, 37, 26, 15, 4, -3, 2, 11, 19, 28};
         private readonly int[] _ascArray = { 2, 3, 5, 8, 8, 8, 8, 10, 11, 15};
+        private readonly int[] _nonRepeatedAscArray = {1, 2, 3, 4, 5};
 
         private readonly int[,] _binary2DArray = {
             {1, 1, 0, 0, 0, 1, 1, 0, 0, 0},
@@ -97,6 +98,16 @@ namespace Study.Test
         {
             var result = new[] { 7, 7 };
             Assert.AreEqual(result, Service.SearchRange(_ascArray, target));
+        }
+
+        [Test]
+        public virtual void CanLeftRotateArray()
+        {
+            var array = _nonRepeatedAscArray;
+            var result = new[] {3, 4, 5, 1, 2};
+            Service.LeftRotation(5, 2, ref array);
+            Utility.PrintArrayLinq(ref array);
+            Assert.AreEqual(result, array);
         }
     }
 }

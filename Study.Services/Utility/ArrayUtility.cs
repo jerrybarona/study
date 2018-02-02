@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace Study.Services.Utility
 {
@@ -73,6 +74,11 @@ namespace Study.Services.Utility
             var temp = a;
             a = b;
             b = temp;
+        }
+
+        public void PrintArrayLinq(ref int[] arr)
+        {
+            arr.ToList().ForEach(x => Console.Write(x + " "));
         }
     }
 }
